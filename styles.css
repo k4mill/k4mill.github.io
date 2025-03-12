@@ -1,0 +1,290 @@
+:root {
+  --bg-color: #06070a;
+  --bg-color-lighten-5: #0f1219;
+  --bg-color-lighten-10: #191d29;
+  --body-color: #fffbf1;
+  --body-color-75: #fffbf1bf;
+  --body-color-50: #fffbf180;
+  --body-color-25: #fffbf13f;
+  --green-status-color: #1ead44;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Quicksand, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--body-color);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+span,
+time {
+  font-size: 1.125rem;
+}
+
+/* ===== Layout Container ===== */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--body-color-25);
+}
+
+header .avatar {
+  width: 5rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.personal-info h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.personal-info h2 {
+  font-size: 1.25rem;
+  margin-left: 0.25rem;
+  color: var(--body-color-50);
+  font-weight: 400;
+}
+
+.links {
+  width: clamp(100px, 20%, 200px);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links .line {
+  height: 1.5rem;
+  width: 2px;
+  background-color: var(--body-color-50);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+}
+
+.links a img {
+  opacity: 0.5;
+  height: 1.75rem;
+  width: auto;
+  transition: all 0.25s ease;
+}
+
+.links a img:hover {
+  opacity: 1;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 0 1rem;
+}
+
+section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--body-color-50);
+  letter-spacing: 1px;
+}
+
+section p {
+  color: var(--body-color);
+}
+
+/* ===== Experience & Education lists ===== */
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logos {
+  min-width: 6rem;
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logos img {
+  width: clamp(2rem, 5rem, 5rem);
+  height: auto;
+  border-radius: 50%;
+}
+
+.logos .line {
+  height: 2rem;
+  width: 2px;
+  background-color: var(--body-color-50);
+}
+
+.descriptions {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content .overview {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.overview h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.overview span,
+time {
+  color: var(--body-color-50);
+}
+
+time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+time.active::after {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--green-status-color);
+  border-radius: 50%;
+  margin: auto 0.5rem;
+}
+
+/* ===== Skills ===== */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item {
+  cursor: default;
+  background-color: var(--bg-color-lighten-10);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.item:hover {
+  background-color: var(--bg-color-lighten-5);
+}
+
+.skills-list .item img {
+  height: 1.5rem;
+  width: auto;
+  filter: grayscale(100%);
+}
+
+.skills-list .item span {
+  color: var(--body-color-75);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 480px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 2rem 0.5rem;
+  }
+
+  .personal-info h1 {
+    font-size: 2rem;
+  }
+
+  .personal-info h2 {
+    font-size: 1rem;
+  }
+
+  .logos .line {
+    height: 4rem;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .skills-list .item span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 481px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    font-size: 16px;
+  }
+}
